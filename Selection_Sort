@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+void DisplayArray(int *arr, int n)
+{
+    printf("\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
+}
+
+void SelectionSort(int *arr, int n)
+{
+    int temp, indexOFMin;
+    printf("Pass Nos : ");
+    for (int i = 0; i < n - 1; i++)
+    {
+        printf("%d ", i);
+        indexOFMin = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[indexOFMin])
+                indexOFMin = j;
+        }
+        // swap two numbers
+        temp = arr[i];
+        arr[i] = arr[indexOFMin];
+        arr[indexOFMin] = temp;
+    }
+}
+
+int main()
+{
+    int arr[] = {12, 54, 65, 7, 23, 9};
+    int size = 6;
+    printf("\nOriginal Array Elements\n");
+    DisplayArray(arr, size);
+
+    printf("Selection Sort Array Elements\n");
+    SelectionSort(arr, size);
+    DisplayArray(arr, size);
+
+    return 0;
+}
